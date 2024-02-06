@@ -1,0 +1,1 @@
+const CounselingSession = require('./models/CounselingSession');

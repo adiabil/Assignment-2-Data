@@ -1,0 +1,28 @@
+{
+  "counselingSessions": [
+    {
+      "id": 4,
+      "crisis": "family problem",
+      "clientName": "lior cohen",
+      "counslerName": "shani perez",
+      "date": "20-04-2024",
+      "sessionStatuss": "in process"
+    },
+    {
+      "id": 5,
+      "crisis": "work-related stress",
+      "clientName": "mike lo",
+      "counslerName": "mark Smith",
+      "date": "2024-02-05",
+      "sessionStatuss": "scheduled"
+    },
+    {
+      "id": 6,
+      "crisis": "Mental Health",
+      "clientName": "noa reshf",
+      "counslerName": "mark Smith",
+      "date": "2024-02-09",
+      "sessionStatuss": "in process"
+    }
+  ]
+}
