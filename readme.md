@@ -15,10 +15,10 @@ This project implements a RESTful API for managing counseling sessions, providin
 -npm
 ### Installation
 Create a `.env` file in the root directory with the following variables:
-- `DB_HOST`  
-- `DB_USER` 
-- `DB_PASS` 
-- `PORT` 
+- `DB_USER`  
+- `DB_PASSWORD` 
+- `DB_CLUSTER` 
+- `DB_NAME` 
 (The details appear on the model)
 4. The server will run on the port specified in the `server.js`.
 ## API Endpoints
