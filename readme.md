@@ -81,13 +81,6 @@ Updates the details of an existing session.
 ## Logging
 Logging is implemented to track API usage and errors. Logs are written to the console and can be configured to write to external logging services or files for production use.
 ## Error Handling
-The application includes error handling for 404 (Not Found), 400,and 500 (Internal
-Server Error) status codes, providing appropriate messages to the client.
+The API provides detailed error responses with appropriate status codes to help diagnose issues.For example, attempting to access a non-existent session ID will return a 404 status code with a message indicating the session was not found.
 
-## Testing
 
-This project contains integration tests for the API endpoints using Jest and Supertest. To ensure that the API behaves as expected, run the tests with the following command:
-
-```bash
-npm test
-```
