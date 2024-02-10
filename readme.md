@@ -12,7 +12,7 @@ This project implements a RESTful API for managing counseling sessions, providin
 ### Prerequisites
 - Node.js
 - MongoDB account and cluster
--npm
+- npm
 ### Installation
 Create a `.env` file in the root directory with the following variables:
 - `DB_USER`  
