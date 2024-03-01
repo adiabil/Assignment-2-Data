@@ -2,9 +2,12 @@ const request = require("supertest");
 const app = require("../server.js");
 const sessionRepository = require("../repositories/sessionRepository");
 const {BadRequest, NotFoundError, ServerError} = require("../errors/errors");
+
+
 jest.mock("../repositories/sessionRepository");
 
-describe("GET /counselingSession", () => {
+//GET all sessions
+describe("GET /counselingSession", () => {//כשמריצים את הטסט ויודעים מה נכשל , בדרך כלל מביאים את הפונקציה ואת הראוטאר
     beforeEach(() =>jest.clearAllMocks());
     //SUCCESS 200
     it("should return all sessions",async() => {
@@ -29,6 +32,7 @@ describe("GET /counselingSession", () => {
         expect(res.statusCode).toEqual(500);
     });
 });
+// GET one session by ID
 describe("GET /counselingSession/:id", () => {
     beforeEach(() =>jest.clearAllMocks());
     //SUCCESS 200
@@ -52,7 +56,9 @@ describe("GET /counselingSession/:id", () => {
         expect(res.statusCode).toEqual(500);
     });
 });
+//create a new session
 describe("POST /counselingSession", () => {
+       //SUCCESS 200
     it(" create new session",async() => {
     const mockSession = [
         {id:"12",crisis:"family crisis",clientName:"noam shvit",counslerName:"mira kibaibanocv",date:"2024-06-02",sessionStatus:"done"}
@@ -60,17 +66,24 @@ describe("POST /counselingSession", () => {
     sessionRepository.createSession.mockResolvedValue(mockSession);
     const res = await request(app).post("/counselingSession");
     });
+
+// FAIL 404 ERROR
     it("should return 404 error", async () => {
         sessionRepository.createSession.mockRejectedValue(new NotFoundError("Session not found"));
         const res = await request(app).post("/counselingSession");
         expect(res.statusCode).toEqual(404);
     });
+  
+     // FAIL 500 ERROR
     it("should return 500", async () => {
         sessionRepository.createSession.mockRejectedValue(new ServerError("Internal Server Error"));
         const res = await request(app).post("/counselingSession");
         expect(res.statusCode).toEqual(404);
     });
+  
+
 });
+//update a session
 describe("PUT /counselingSession/:id", () =>{
     beforeEach(() =>jest.clearAllMocks());
     //SUCCESS 200
@@ -95,6 +108,7 @@ describe("PUT /counselingSession/:id", () =>{
         expect(res.statusCode).toEqual(500);
     });
 });
+//delete a session
 describe("DELETE /counselingSession/:id", () => {
     beforeEach(() => jest.clearAllMocks());
   

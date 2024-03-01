@@ -11,4 +11,5 @@ const sessionSchema = new mongoose.Schema({
 });
 
 const sessionModel = mongoose.model('counselingSession', sessionSchema);
+
 module.exports = sessionModel;

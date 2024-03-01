@@ -6,11 +6,14 @@ const { errorHandler } = require("./middlewares/errorHandler");
 const apiRouter = require('./routers/sessionRouter');
 const {connectDB} = require('./db/mongoStorage');
 const app = express();
+const cors = require('cors');
+
 const port = process.env.PORT || 8080;
 module.exports = app;
 
 
 app.use(express.json());
+app.use(cors());
 app.use(errorHandler);
 app.use(express.urlencoded({ extended: true }));
 app.use('/counselingSession', apiRouter);
